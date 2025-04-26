@@ -35,7 +35,6 @@ import static org.apache.dubbo.common.utils.CollectionUtils.ofSet;
 import static org.apache.dubbo.common.utils.StringUtils.splitToList;
 import static org.apache.dubbo.common.utils.StringUtils.splitToSet;
 import static org.apache.dubbo.common.utils.StringUtils.startsWithIgnoreCase;
-import static org.apache.dubbo.common.utils.StringUtils.toCommaDelimitedString;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
@@ -478,22 +477,22 @@ class StringUtilsTest {
      */
     @Test
     void testToCommaDelimitedString() {
-        String value = toCommaDelimitedString(null);
+        String value = StringUtils.toCommaDelimitedString(null);
         assertNull(value);
 
-        value = toCommaDelimitedString(null, null);
+        value = StringUtils.toCommaDelimitedString(null, (String) null);
         assertNull(value);
 
-        value = toCommaDelimitedString("");
+        value = StringUtils.toCommaDelimitedString("");
         assertEquals("", value);
 
-        value = toCommaDelimitedString("one");
+        value = StringUtils.toCommaDelimitedString("one");
         assertEquals("one", value);
 
-        value = toCommaDelimitedString("one", "two");
+        value = StringUtils.toCommaDelimitedString("one", "two");
         assertEquals("one,two", value);
 
-        value = toCommaDelimitedString("one", "two", "three");
+        value = StringUtils.toCommaDelimitedString("one", "two", "three");
         assertEquals("one,two,three", value);
     }
 
